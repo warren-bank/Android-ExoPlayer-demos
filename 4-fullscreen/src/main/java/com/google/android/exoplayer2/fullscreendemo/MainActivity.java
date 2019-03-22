@@ -105,17 +105,27 @@ public class MainActivity extends AppCompatActivity implements OnClickListener,
   @Override
   public void onResume() {
     super.onResume();
+
     if (castContext == null) {
       // There is no Cast context to work with. Do nothing.
       return;
     }
+
+    FullScreenManager fullScreenManager = FullScreenManager.createFullScreenManager(
+      /* mainActivity= */ this,
+      localPlayerView
+    );
+
     playerManager =
         PlayerManager.createPlayerManager(
             /* queuePositionListener= */ this,
             localPlayerView,
             castControlView,
             /* context= */ this,
-            castContext);
+            castContext,
+            fullScreenManager
+    );
+
     mediaQueueList.setAdapter(mediaQueueListAdapter);
   }
 

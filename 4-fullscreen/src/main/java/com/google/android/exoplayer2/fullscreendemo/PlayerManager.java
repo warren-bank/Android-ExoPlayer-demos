@@ -81,6 +81,8 @@ import java.util.ArrayList;
   private int currentItemIndex;
   private Player currentPlayer;
 
+  private FullScreenManager fullScreenManager;
+
   /**
    * @param queuePositionListener A {@link QueuePositionListener} for queue position changes.
    * @param localPlayerView The {@link PlayerView} for local playback.
@@ -93,10 +95,12 @@ import java.util.ArrayList;
       PlayerView localPlayerView,
       PlayerControlView castControlView,
       Context context,
-      CastContext castContext) {
+      CastContext castContext,
+      FullScreenManager fullScreenManager
+    ) {
     PlayerManager playerManager =
         new PlayerManager(
-            queuePositionListener, localPlayerView, castControlView, context, castContext);
+            queuePositionListener, localPlayerView, castControlView, context, castContext, fullScreenManager);
     playerManager.init();
     return playerManager;
   }
@@ -106,10 +110,13 @@ import java.util.ArrayList;
       PlayerView localPlayerView,
       PlayerControlView castControlView,
       Context context,
-      CastContext castContext) {
+      CastContext castContext,
+      FullScreenManager fullScreenManager
+    ) {
     this.queuePositionListener = queuePositionListener;
     this.localPlayerView = localPlayerView;
     this.castControlView = castControlView;
+    this.fullScreenManager = fullScreenManager;
     mediaQueue = new ArrayList<>();
     currentItemIndex = C.INDEX_UNSET;
     concatenatingMediaSource = new ConcatenatingMediaSource();
@@ -259,6 +266,7 @@ import java.util.ArrayList;
     concatenatingMediaSource.clear();
     castPlayer.setSessionAvailabilityListener(null);
     castPlayer.release();
+    fullScreenManager.release();
     localPlayerView.setPlayer(null);
     exoPlayer.release();
   }
@@ -299,7 +307,14 @@ import java.util.ArrayList;
   // Internal methods.
 
   private void init() {
-    setCurrentPlayer(castPlayer.isCastSessionAvailable() ? castPlayer : exoPlayer);
+    boolean isCasting = castPlayer.isCastSessionAvailable();
+
+    setCurrentPlayer(isCasting ? castPlayer : exoPlayer);
+
+    if (isCasting)
+      fullScreenManager.disable();
+    else
+      fullScreenManager.enable();
   }
 
   private void updateCurrentItemIndex() {
@@ -316,9 +331,11 @@ import java.util.ArrayList;
 
     // View management.
     if (currentPlayer == exoPlayer) {
+      fullScreenManager.enable();
       localPlayerView.setVisibility(View.VISIBLE);
       castControlView.hide();
     } else /* currentPlayer == castPlayer */ {
+      fullScreenManager.disable();
       localPlayerView.setVisibility(View.GONE);
       castControlView.show();
     }

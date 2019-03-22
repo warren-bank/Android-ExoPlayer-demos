@@ -111,10 +111,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener,
       return;
     }
 
-    FullScreenManager fullScreenManager = FullScreenManager.createFullScreenManager(
-      /* mainActivity= */ this,
-      localPlayerView
-    );
+    FullScreenManager fullScreenManager =
+        FullScreenManager.createFullScreenManager(
+            /* mainActivity= */ this,
+            localPlayerView
+        );
 
     playerManager =
         PlayerManager.createPlayerManager(
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener,
             /* context= */ this,
             castContext,
             fullScreenManager
-    );
+        );
 
     mediaQueueList.setAdapter(mediaQueueListAdapter);
   }

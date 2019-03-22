@@ -87,7 +87,6 @@ final class FullScreenManager {
     mFullScreenDialog.show();
   }
 
-
   private void closeFullscreenDialog() {
     ((ViewGroup) localPlayerView.getParent()).removeView(localPlayerView);
     ((FrameLayout) mainActivity.findViewById(R.id.main_media_frame)).addView(localPlayerView);
@@ -95,7 +94,6 @@ final class FullScreenManager {
     mFullScreenDialog.dismiss();
     mFullScreenIcon.setImageDrawable(ContextCompat.getDrawable(mainActivity, R.drawable.ic_fullscreen_expand));
   }
-
 
   private void initFullscreenButton() {
     PlaybackControlView controlView = localPlayerView.findViewById(R.id.exo_controller);

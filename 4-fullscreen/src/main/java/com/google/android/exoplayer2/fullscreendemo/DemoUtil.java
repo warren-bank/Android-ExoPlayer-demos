@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.exoplayer2.castdemo;
+package com.google.android.exoplayer2.fullscreendemo;
 
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.gms.cast.MediaInfo;
@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Utility methods and constants for the Cast demo application.
+ * Utility methods and constants for the Full Screen demo application.
  */
 /* package */ final class DemoUtil {
 
@@ -32,7 +32,7 @@ import java.util.List;
   public static final String MIME_TYPE_VIDEO_MP4 = MimeTypes.VIDEO_MP4;
 
   /**
-   * The list of samples available in the cast demo app.
+   * The list of samples available in the Full Screen demo app.
    */
   public static final List<Sample> SAMPLES;
 

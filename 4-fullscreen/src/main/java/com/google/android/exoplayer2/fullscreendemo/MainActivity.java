@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.exoplayer2.castdemo;
+package com.google.android.exoplayer2.fullscreendemo;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -35,7 +35,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.castdemo.DemoUtil.Sample;
+import com.google.android.exoplayer2.fullscreendemo.DemoUtil.Sample;
 import com.google.android.exoplayer2.ext.cast.CastPlayer;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;

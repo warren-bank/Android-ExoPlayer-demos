@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.exoplayer2.castdemo;
+package com.google.android.exoplayer2.fullscreendemo;
 
 import android.content.Context;
 import android.net.Uri;
@@ -31,7 +31,7 @@ import com.google.android.exoplayer2.RenderersFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.Timeline.Period;
-import com.google.android.exoplayer2.castdemo.DemoUtil.Sample;
+import com.google.android.exoplayer2.fullscreendemo.DemoUtil.Sample;
 import com.google.android.exoplayer2.ext.cast.CastPlayer;
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
@@ -49,7 +49,7 @@ import com.google.android.gms.cast.MediaQueueItem;
 import com.google.android.gms.cast.framework.CastContext;
 import java.util.ArrayList;
 
-/** Manages players and an internal media queue for the ExoPlayer/Cast demo app. */
+/** Manages players and an internal media queue for the ExoPlayer/Full Screen demo app. */
 /* package */ final class PlayerManager
     implements EventListener, CastPlayer.SessionAvailabilityListener {
 
@@ -65,7 +65,7 @@ import java.util.ArrayList;
 
   }
 
-  private static final String USER_AGENT = "ExoCastDemoPlayer";
+  private static final String USER_AGENT = "ExoFullScreenDemoPlayer";
   private static final DefaultHttpDataSourceFactory DATA_SOURCE_FACTORY =
       new DefaultHttpDataSourceFactory(USER_AGENT);
 

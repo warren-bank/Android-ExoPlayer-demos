@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-apply from: '../../constants.gradle'
+apply from: '../constants.gradle'
 apply plugin: 'com.android.application'
 
 android {
@@ -48,13 +48,15 @@ android {
 }
 
 dependencies {
-    implementation project(modulePrefix + 'library-core')
-    implementation project(modulePrefix + 'library-ui')
-    implementation project(modulePrefix + 'library-dash')
-    implementation project(modulePrefix + 'library-hls')
-    implementation project(modulePrefix + 'library-smoothstreaming')
-    implementation project(modulePrefix + 'extension-ima')
-    implementation 'com.android.support:support-annotations:' + supportLibraryVersion
+    implementation 'com.android.support:support-annotations:'                + project.ext.supportLibraryVersion
+
+    implementation 'com.google.android.exoplayer:exoplayer-core:'            + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-dash:'            + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-hls:'             + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:' + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-ui:'              + project.ext.releaseVersion
+
+    implementation 'com.google.android.exoplayer:extension-ima:'             + project.ext.releaseVersion
 }
 
 apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'

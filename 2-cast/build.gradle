@@ -11,7 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-apply from: '../../constants.gradle'
+apply from: '../constants.gradle'
 apply plugin: 'com.android.application'
 
 android {
@@ -52,15 +52,17 @@ android {
 }
 
 dependencies {
-    implementation project(modulePrefix + 'library-core')
-    implementation project(modulePrefix + 'library-dash')
-    implementation project(modulePrefix + 'library-hls')
-    implementation project(modulePrefix + 'library-smoothstreaming')
-    implementation project(modulePrefix + 'library-ui')
-    implementation project(modulePrefix + 'extension-cast')
-    implementation 'com.android.support:support-v4:' + supportLibraryVersion
-    implementation 'com.android.support:appcompat-v7:' + supportLibraryVersion
-    implementation 'com.android.support:recyclerview-v7:' + supportLibraryVersion
+    implementation 'com.android.support:support-v4:'                         + project.ext.supportLibraryVersion
+    implementation 'com.android.support:appcompat-v7:'                       + project.ext.supportLibraryVersion
+    implementation 'com.android.support:recyclerview-v7:'                    + project.ext.supportLibraryVersion
+
+    implementation 'com.google.android.exoplayer:exoplayer-core:'            + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-dash:'            + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-hls:'             + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:' + project.ext.releaseVersion
+    implementation 'com.google.android.exoplayer:exoplayer-ui:'              + project.ext.releaseVersion
+
+    implementation 'com.google.android.exoplayer:extension-cast:'            + project.ext.releaseVersion
 }
 
 apply plugin: 'com.google.android.gms.strict-version-matcher-plugin'

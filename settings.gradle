@@ -15,3 +15,4 @@
 include ':1-main'
 include ':2-cast'
 include ':3-ima'
+include ':4-fullscreen'

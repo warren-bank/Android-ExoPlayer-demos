@@ -49,16 +49,17 @@ android {
         disable 'MissingTranslation'
     }
 
-    flavorDimensions "extensions"
+//  flavorDimensions "extensions"
+//
+//  productFlavors {
+//      noExtensions {
+//          dimension "extensions"
+//      }
+//      withExtensions {
+//          dimension "extensions"
+//      }
+//  }
 
-    productFlavors {
-        noExtensions {
-            dimension "extensions"
-        }
-        withExtensions {
-            dimension "extensions"
-        }
-    }
 }
 
 dependencies {

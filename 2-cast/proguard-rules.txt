@@ -1,6 +1,4 @@
-# Proguard rules specific to the Cast demo app.
-
-# Accessed via menu.xml
--keep class android.support.v7.app.MediaRouteActionProvider {
-  *;
-}
+-keep class com.google.android.exoplayer.** { *; }
+-keep class com.google.android.exoplayer2.** { *; }
+-keep class com.google.android.gms.** { *; }
+-keep class android.support.v7.app.MediaRouteActionProvider { *; }
